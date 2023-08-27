@@ -1,0 +1,17 @@
+#Fase de pruebas
+version: "3.8"
+services:
+  linuxgsm-nmrih:
+    image: gameservermanagers/gameserver:nmrih
+    # image: ghcr.io/gameservermanagers/gameserver:nmrih
+    restart: unless-stopped
+    volumes:
+      - /var/lib/docker/volumes/linuxgsm_nmrih_data/_data:/data
+    ports:
+      - "27115:27015/udp"
+      - "27030-27039:27030-27039/tcp"
+      - "27000-27010:27000-27010/udp"
+      - "27020:27020/udp"
+      - "1200:1200/udp"
+      # - "27015:27015/tcp" - Remapeado
+      # - "27015:27015/udp" - Remapeado
